@@ -1,46 +1,43 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-const users = ref([]);
-
+// Cargar usuarios desde localStorage
+const users = ref(JSON.parse(localStorage.getItem('users')) || []);
+const searchTerm = ref('');
+const filterField = ref('todos'); // Campo para seleccionar filtro
 const newName = ref('');
 const newEmail = ref('');
 
-const createUser = () => {
-    users.value.push({
-        id: String(Date.now()),
-        name: newName.value,
-        email: newEmail.value
-    });
-    newName.value = '';
-    newEmail.value = '';
-};
-
-// Eliminar usuario
-const deleteUser = (id) => {
-    users.value = users.value.filter(user => user.id !== id);
-};
-
-// Actualizar usuario
-const updateUser = (id) => {
-    const index = users.value.findIndex(user => user.id === id);
-    if (index !== -1) {
-        const newName = prompt('Nuevo nombre:', users.value[index].name);
-        if (newName) {
-            users.value.splice(index, 1, {
-                ...users.value[index],
-                name: newName
-            });
-        }
+// Computed para usuarios filtrados
+const filteredUsers = computed(() => {
+  if (!searchTerm.value) return users.value;
+  
+  const term = searchTerm.value.toLowerCase();
+  
+  return users.value.filter(user => {
+    if (filterField.value === 'nombre') {
+      return user.name.toLowerCase().includes(term);
     }
-};
+    if (filterField.value === 'email') {
+      return user.email.toLowerCase().includes(term);
+    }
+    // Búsqueda en todos los campos
+    return (
+      user.name.toLowerCase().includes(term) ||
+      user.email.toLowerCase().includes(term)
+    );
+  });
+});
 </script>
+
+
+
 
 <template>
   <q-page class="flex flex-center q-pa-md">
     <div style="max-width: 800px;">
-      <h2>CRUD de Usuarios </h2>
-      
+      <h2>CRUD de Usuarios</h2>
+
       <!-- Formulario de creación -->
       <div class="q-gutter-md q-mb-lg">
         <q-input v-model="newName" label="Nombre" outlined/>
@@ -49,8 +46,8 @@ const updateUser = (id) => {
       </div>
 
       <!-- Lista de usuarios -->
-      <q-list bordered>
-        <q-item v-for="user in users" :key="user.id">
+      <q-list>
+        <q-item v-for="user in filteredUsers" :key="user.id">
           <q-item-section>
             <q-item-label>{{ user.name }}</q-item-label>
             <q-item-label caption>{{ user.email }}</q-item-label>
@@ -60,7 +57,24 @@ const updateUser = (id) => {
             <q-btn @click="updateUser(user.id)" color="blue" icon="edit"/>
           </q-item-section>
         </q-item>
+        
+        <q-item v-if="filteredUsers.length === 0">
+          <q-item-section class="text-grey text-center">
+            No se encontraron resultados
+          </q-item-section>
+        </q-item>
       </q-list>
+
+
+      <div class="q-gutter-md q-mb-lg">
+        <div class="row items-center q-gutter-sm">
+          <q-input v-model="searchTerm" label="Buscar usuarios..." outlined dense class="col">
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
