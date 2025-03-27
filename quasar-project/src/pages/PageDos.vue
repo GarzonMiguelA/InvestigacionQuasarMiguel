@@ -119,3 +119,9 @@ const updateUser = (id) => {
     </div>
   </q-page>
 </template>
+
+<style scoped>
+.q-page {
+  background-color: #f9f9f9;
+}
+</style>

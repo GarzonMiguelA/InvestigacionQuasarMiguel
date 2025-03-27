@@ -24,14 +24,16 @@
   import { useRoute } from 'vue-router';
   import { getUsers } from '../composables/getUsers';
   
-  const route = useRoute();  // Acceder a la ruta actual
+  // Crear la referencia al usuario
+  const route = useRoute();
   const user = ref(null);
   
-  // Cargar usuarios desde la API
+  // Cargar los usuarios desde localStorage y la API
   onMounted(async () => {
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     const apiUsers = await getUsers();
-    const userId = route.params.id;  // Obtener el ID del usuario desde la ruta
-    user.value = apiUsers.find(u => u.id == userId);  // Buscar el usuario por su ID
+    const allUsers = [...storedUsers, ...apiUsers];
+    user.value = allUsers.find(u => u.id == route.params.id);
   });
   </script>
   
