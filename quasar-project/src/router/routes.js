@@ -1,8 +1,8 @@
-
 import MainLayout from 'src/layouts/MainLayout.vue'
 import PageUno from 'src/pages/PageUno.vue'
 import PageDos from 'src/pages/PageDos.vue'
 import PageTres from 'src/pages/PageTres.vue'
+import UserDetail from 'src/pages/userDetail.vue' 
 
 const routes = [
   {
@@ -11,7 +11,8 @@ const routes = [
     children: [
       { path: '', component: PageUno },
       { path: 'page2', component: PageDos },
-      { path: 'page3', component: PageTres }
+      { path: 'page3', component: PageTres },
+      { path: 'user/:id', component: UserDetail }  // Ruta dinámica para el detalle del usuario
     ]
   }
 ]
