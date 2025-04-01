@@ -12,7 +12,7 @@ const routes = [
       { path: '', component: PageUno },
       { path: 'page2', component: PageDos },
       { path: 'page3', component: PageTres },
-      { path: 'user/:id', component: UserDetail }  // Ruta dinámica para el detalle del usuario
+      { path: 'user/:id', component: UserDetail }  // Utilizamos ruta dinamica para el detalle del Usuario
     ]
   }
 ]
