@@ -1,36 +1,38 @@
-
 <script setup>
 import { ref } from 'vue';
-import ContactForm from '../components/ContactForm.vue';  // Importamos ContactForm
+import ContactForm from '../components/ContactForm.vue';  
 
 const name = ref('');
 const lastName = ref('');
 const phone = ref('');
 const email = ref('');
-const message = ref('');  // Nueva variable para el mensaje
+const message = ref(''); 
 const submitted = ref(false);
+const errorMessage = ref('');
 
 const handleSubmit = (formData) => {
-  // Aquí puedes manejar los datos recibidos, por ejemplo, enviarlos a un servidor
+  // Verificamos que todos los campos estén llenos
+  if (!name.value || !lastName.value || !phone.value || !email.value || !message.value) {
+    errorMessage.value = 'Por favor, complete todos los campos.';
+    return;
+  }
+
   console.log('Formulario enviado:', formData);
 
   submitted.value = true;
 
-  // Reseteamos el formulario
+  // Reseteamos formulario
   name.value = '';
   lastName.value = '';
   phone.value = '';
   email.value = '';
-  message.value = ''; // Reseteamos el mensaje
+  message.value = ''; 
+  errorMessage.value = ''; 
 };
 </script>
 
-
-
-
 <template>
   <q-page class="flex flex-center bg-grey-1">
-    <!-- Contenedor del formulario con tarjeta -->
     <q-card class="q-pa-md" style="width: 400px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
       <q-card-section>
         <div class="text-h6 text-center q-mb-md">Formulario de Contacto</div>
@@ -46,9 +48,13 @@ const handleSubmit = (formData) => {
           </template>
         </ContactForm>
 
+        <!-- Mensaje de error si no se han completado los campos -->
+        <div v-if="errorMessage" class="text-negative text-center q-mt-md">
+          <q-icon name="warning" /> {{ errorMessage }}
+        </div>
       </q-card-section>
 
-      <!-- Mensaje después de enviar -->
+      <!-- Si todo va bien: -->
       <q-card-actions v-if="submitted" class="q-mt-md">
         <div class="text-center">
           <p>Nos pondremos en contacto contigo</p>
@@ -57,9 +63,6 @@ const handleSubmit = (formData) => {
     </q-card>
   </q-page>
 </template>
-
-
-
 
 <style scoped>
 .q-page {

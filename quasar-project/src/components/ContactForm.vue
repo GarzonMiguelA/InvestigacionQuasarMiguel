@@ -1,10 +1,10 @@
 <template>
     <q-form @submit.prevent="$emit('submit', formData)">
-      <slot name="fields"> <!-- Slot para campos del formulario -->
+      <slot name="fields"> 
         <q-input v-model="formData.name" label="Nombre" filled />
         <q-input v-model="formData.email" label="Email" filled />
       </slot>
-      <slot name="actions"> <!-- Slot para botones -->
+      <slot name="actions"> 
         <q-btn label="Enviar" type="submit" color="primary" />
       </slot>
     </q-form>
