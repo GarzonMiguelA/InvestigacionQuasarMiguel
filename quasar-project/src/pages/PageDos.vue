@@ -128,3 +128,75 @@ const updateUser = (id) => {
     </div>
   </q-page>
 </template>
+
+<style scoped>
+.q-page {
+  background: #f4f4f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.q-input {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.q-list {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.q-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.q-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.q-item-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.q-item-label caption {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.q-btn {
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.q-btn:hover {
+  transform: scale(1.1);
+}
+
+.q-btn[color="red"] {
+  background: #e74c3c;
+  color: white;
+}
+
+.q-btn[color="blue"] {
+  background: #3498db;
+  color: white;
+}
+
+.q-item-section.text-grey {
+  font-size: 14px;
+  color: #95a5a6;
+}
+</style>

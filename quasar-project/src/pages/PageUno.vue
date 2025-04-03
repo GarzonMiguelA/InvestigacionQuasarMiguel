@@ -15,7 +15,7 @@ const goToQuasar = () => {
   <!-- Mostrare la informacion con tarjetas: -->
   <q-page class="flex flex-center q-pa-md">
     <div class="q-gutter-md" style="max-width: 900px;">
-      <h2 class="q-mb-md text-center text-h3">Investigación sobre Quasar Framework</h2>
+      <h2 class="q-mb-md text-center text-h3">Investigación sobre Quasar</h2>
 
       <SectionCard title="Introducción">
         <p>
@@ -95,27 +95,40 @@ const goToQuasar = () => {
 
 <style scoped>
 .q-page {
-  background-color: #f9f9f9;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
-  font-weight: bold;
-  color: #1e1e1e;
+  font-weight: 700;
+  color: #2c3e50;
+  text-transform: uppercase;
 }
 
 .q-btn {
-  min-width: 150px;
+  min-width: 160px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.q-btn:hover {
+  transform: scale(1.05);
 }
 
 .q-dialog .q-card {
-  width: 400px;
+  width: 420px;
   max-width: 90vw;
+  border-radius: 12px;
 }
 
 .q-list {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
 .text-center {
@@ -123,15 +136,29 @@ h2 {
 }
 
 .q-card-section {
-  padding: 20px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
 }
 
 .q-card-actions {
-  padding: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .q-mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.q-btn.primary {
+  background: #1976d2;
+  color: #fff;
+}
+
+.q-btn.secondary {
+  background: #757575;
+  color: #fff;
 }
 </style>

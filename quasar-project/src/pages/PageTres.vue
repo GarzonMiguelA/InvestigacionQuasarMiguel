@@ -65,7 +65,82 @@ const handleSubmit = (formData) => {
 </template>
 
 <style scoped>
-.q-page {
-  background-color: #f9f9f9;
+
+.text-h6 {
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
 }
+
+
+.q-page {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.q-card {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.q-card:hover {
+  transform: scale(1.02);
+}
+
+.text-h6 {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.q-input {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.q-input:focus-within {
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.q-btn {
+  width: 100%;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.q-btn:hover {
+  background: #5563c1;
+  transform: scale(1.05);
+}
+
+.text-negative {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.q-card-actions {
+  background: #f1f1f1;
+  border-radius: 0 0 15px 15px;
+  padding: 15px;
+}
+
+.text-center {
+  font-size: 16px;
+  font-weight: 500;
+  color: #34495e;
+}
+
 </style>
