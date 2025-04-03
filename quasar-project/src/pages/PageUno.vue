@@ -12,63 +12,60 @@ const goToQuasar = () => {
 </script>
 
 <template>
-  <!-- Mostrare la informacion con tarjetas: -->
   <q-page class="flex flex-center q-pa-md">
     <div class="q-gutter-md" style="max-width: 900px;">
       <h2 class="q-mb-md text-center text-h3">Investigación sobre Quasar</h2>
-
+      <!-- Usare tarjetas para mostrar todos los textos: -->
       <SectionCard title="Introducción">
-        <p>
-          Quasar es un framework basado en Vue.js que permite construir aplicaciones de alto rendimiento para diversos entornos: desde aplicaciones web, móviles, hasta aplicaciones de escritorio.
-        </p>
+        <p>Quasar es un framework que se basa en Vue.js y que hace que desarrollar aplicaciones rápidas y eficientes sea mucho más fácil. Con él, puedes crear aplicaciones web, móviles y hasta de escritorio sin complicaciones.</p>
       </SectionCard>
 
       <SectionCard title="Características Principales de Quasar">
         <ul>
-          <li><strong>Desarrollo Multiplataforma</strong>: Soporte para múltiples entornos.</li>
-          <li><strong>Componentes Integrados</strong>: Más de 70 componentes UI predefinidos.</li>
-          <li><strong>Optimización</strong>: Implementación de carga perezosa y tree shaking.</li>
-          <li><strong>CLI de Quasar</strong>: Facilita la creación y el desarrollo de aplicaciones.</li>
-          <li><strong>Soporte para SSR y SEO</strong>: Mejor rendimiento en SEO.</li>
+          <li><strong>Desarrollo Multiplataforma:</strong> Quasar te permite trabajar en diferentes plataformas sin tener que rehacer todo desde cero.</li>
+          <li><strong>Componentes listos para Usar:</strong> Tienes más de 70 componentes para elegir, todos optimizados para una experiencia fluida.</li>
+          <li><strong>Optimización:</strong> Gracias a funciones como la carga perezosa, Quasar asegura que tu aplicación sea rápida, sin importar el tamaño.</li>
+          <li><strong>CLI de Quasar:</strong> Con Quasar, crear y desarrollar es más rápido y sencillo. Ya que implementa un CLI.</li>
+          <li><strong>SEO Mejorado:</strong> Tambiien tiene soporte para SSR, lo que significa que tu aplicación no solo será rápida, sino también amigable con los motores de búsqueda.</li>
         </ul>
       </SectionCard>
 
       <SectionCard title="Ventajas de Usar Quasar">
         <ul>
-          <li><strong>Rapidez y Facilidad de Uso</strong>: Configuración rápida y componentes preconstruidos.</li>
-          <li><strong>Consistencia</strong>: Diseño coherente en toda la aplicación.</li>
-          <li><strong>Adaptabilidad</strong>: Compatible con múltiples plataformas.</li>
-          <li><strong>Documentación Completa</strong>: Facilita el aprendizaje.</li>
+          <li><strong>Rapidez y Facilidad de Uso:</strong> Puedes empezar rápido gracias a su configuración sencilla y sus componentes listos para usar.</li>
+          <li><strong>Consistencia Visual:</strong> Tu aplicación siempre tendrá un diseño consistente, lo que ahorra tiempo en la personalización.</li>
+          <li><strong>Adaptabilidad:</strong> Ya sea que estés creando una app web, móvil o de escritorio, Quasar tiene todo lo que necesitas.</li>
+          <li><strong>Documentación Amigable:</strong> Cuenta también con una documentación clara y fácil de seguir, ideal para aprender a tu propio ritmo.</li>
         </ul>
       </SectionCard>
 
       <SectionCard title="Desventajas de Usar Quasar">
         <ul>
-          <li><strong>Curva de Aprendizaje</strong>: Puede ser difícil al inicio.</li>
-          <li><strong>Tamaño de la Aplicación</strong>: Puede aumentar si se incluyen muchas funcionalidades.</li>
+          <li><strong>Curva de Aprendizaje:</strong> Si bien Quasar nos facilita mucho el desarrollo, al principio puede resultar un poco dificl, sobretodo si es tu primer contacto con Vue.js.</li>
+          <li><strong>Tamaño de la App:</strong> Cuantas más funcionalidades añades, mayor será el tamaño de la aplicación. Pero si sabes gestionar bien las dependencias, puedes optimizar el rendimiento.</li>
         </ul>
       </SectionCard>
 
       <SectionCard title="Casos de Uso">
         <ul>
-          <li><strong>Aplicaciones de Gestión</strong>: Paneles de administración.</li>
-          <li><strong>Aplicaciones Móviles</strong>: Creación de apps con Cordova.</li>
-          <li><strong>Aplicaciones de Escritorio</strong>: Soporte para Electron.</li>
+          <li><strong>Aplicaciones de Gestión:</strong> Si necesitas crear un panel de administración o un sistema interno, Quasar es perfecto para construirlo rápidamente.</li>
+          <li><strong>Aplicaciones Móviles:</strong> Usando Cordova, puedes transformar tu aplicación web en una app móvil, lo que te permite llegar a más usuarios.</li>
+          <li><strong>Aplicaciones de Escritorio:</strong> Con Quasar, también puedes crear aplicaciones de escritorio usando Electron, lo que hace que tu app sea accesible desde cualquier computadora.</li>
         </ul>
       </SectionCard>
 
       <SectionCard title="Conclusión">
         <p>
-          Quasar es un framework robusto y completo que facilita el desarrollo de aplicaciones modernas con Vue.js.
+          En resumen, Quasar es una excelente opción si buscas un framework que haga todo el trabajo pesado por ti, permitiéndote enfocarte en lo que realmente importa: crear aplicaciones increíbles.
         </p>
       </SectionCard>
 
       <!-- Ejemplos de 2 componentes (que no uso en otra pagina durante mi investigacion) -->
       <SectionCard title="Ejemplo de Componentes de Quasar">
         <div class="text-center">
-          <q-btn @click="showModal = true" label="Mostrar Modal" color="primary" class="q-mb-md" icon="launch" />
+          <q-btn @click="showModal = true" label="Clica y ves a Quasar" color="primary" class="q-mb-md" icon="launch" />
           <SectionCard title="Título de la Tarjeta">
-            <p>Contenido interesante en esta tarjeta. Puedes agregar más información aquí.</p>
+            <p>¡Contenido interesante en cualquier tarjeta!</p>
             <template #actions>
               <q-btn label="Acción" color="primary" icon="edit" @click="showAlert" class="q-mx-auto" />
             </template>
@@ -92,6 +89,7 @@ const goToQuasar = () => {
     </div>
   </q-page>
 </template>
+
 
 <style scoped>
 .q-page {
