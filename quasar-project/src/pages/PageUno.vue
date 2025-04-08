@@ -3,9 +3,6 @@ import { ref } from 'vue';
 import SectionCard from '../components/sectionCard.vue';
 
 const showModal = ref(false);
-const showAlert = () => {
-  alert("¡Has hecho clic en el botón de acción!");
-};
 const goToQuasar = () => {
   window.open('https://quasar.dev/', '_blank');
 };
@@ -14,65 +11,61 @@ const goToQuasar = () => {
 <template>
   <q-page class="flex flex-center q-pa-md">
     <div class="q-gutter-md" style="max-width: 900px;">
-      <h2 class="q-mb-md text-center text-h3">Investigación sobre Quasar</h2>
-      <!-- Usare tarjetas para mostrar todos los textos: -->
-      <SectionCard title="Introducción">
-        <p>Quasar es un framework que se basa en Vue.js y que hace que desarrollar aplicaciones rápidas y eficientes sea mucho más fácil. Con él, puedes crear aplicaciones web, móviles y hasta de escritorio sin complicaciones.</p>
-      </SectionCard>
+      <h2 class="q-mb-md text-center text-h3">Documentación y Análisis del Framework Quasar</h2>
 
-      <SectionCard title="Características Principales de Quasar">
+      <SectionCard title="Componentes usados en mi aplicación">
+        <p>Durante el desarrollo de esta aplicación con Quasar he utilizado varios componentes del propio framework y también he creado algunos míos para adaptarlos a lo que necesitaba. Aquí te dejo un repaso de los más importantes:</p>
+        
+        <h4>Componentes de Quasar</h4>
+        <p>Estos son los que me proporciona Quasar ya listos para usar y que me han venido genial:</p>
+
         <ul>
-          <li><strong>Desarrollo Multiplataforma:</strong> Quasar te permite trabajar en diferentes plataformas sin tener que rehacer todo desde cero.</li>
-          <li><strong>Componentes listos para Usar:</strong> Tienes más de 70 componentes para elegir, todos optimizados para una experiencia fluida.</li>
-          <li><strong>Optimización:</strong> Gracias a funciones como la carga perezosa, Quasar asegura que tu aplicación sea rápida, sin importar el tamaño.</li>
-          <li><strong>CLI de Quasar:</strong> Con Quasar, crear y desarrollar es más rápido y sencillo. Ya que implementa un CLI.</li>
-          <li><strong>SEO Mejorado:</strong> Tambiien tiene soporte para SSR, lo que significa que tu aplicación no solo será rápida, sino también amigable con los motores de búsqueda.</li>
+          <li><strong><code>q-btn</code>:</strong> Es un botón que uso para muchas cosas, como abrir modales, enviar formularios o lanzar alguna acción dentro de las tarjetas.</li>
+          <li><strong><code>q-dialog</code>:</strong> Me permite mostrar ventanas modales para dar más información o confirmar acciones sin tener que salir de la página.</li>
+          <li><strong><code>q-card</code>:</strong> Son tarjetas donde meto información. Las uso para estructurar secciones dentro de la app.</li>
+          <li><strong><code>q-card-section</code>:</strong> Esto lo uso dentro de las tarjetas para separar contenido en distintas partes, por ejemplo el título, el texto, etc.</li>
+          <li><strong><code>q-card-actions</code>:</strong> Aquí meto los botones o acciones dentro de las tarjetas. Suelen ir abajo, como para aceptar o cerrar.</li>
+          <li><strong><code>q-page</code>:</strong> Es como el contenedor principal de cada página. Me ayuda a definir el diseño y aplicar estilos generales.</li>
+          <li><strong><code>q-avatar</code>:</strong> Lo utilizo para mostrar imágenes redondas, como avatares de usuario.</li>
+          <li><strong><code>q-toolbar-title</code>:</strong> Es el título que pongo en la cabecera de la app. Va dentro de una <code>q-toolbar</code>.</li>
+          <li><strong><code>q-layout</code>:</strong> Me sirve para organizar toda la estructura de la aplicación: cabecera, contenido principal, menús laterales, etc.</li>
+          <li><strong><code>q-header</code>:</strong> Lo uso para crear la parte superior de la app donde va el título o el logo.</li>
+          <li><strong><code>q-list</code>:</strong> Para mostrar listas de elementos, como por ejemplo el menú o una lista de opciones.</li>
+          <li><strong><code>q-item</code>:</strong> Es cada ítem que forma parte de una lista. Por ejemplo, cada opción del menú.</li>
+          <li><strong><code>q-item-section</code>:</strong> Divide el contenido de cada ítem. Por ejemplo, un lado con el icono y otro con el texto.</li>
+          <li><strong><code>q-item-label</code>:</strong> Es el texto o la etiqueta que muestro dentro de un ítem de lista.</li>
+        </ul>
+
+        <h4>Componentes que he creado yo</h4>
+        <p>Aparte de los que me da Quasar, también he hecho algunos componentes propios para tener el código más limpio y reutilizable:</p>
+
+        <ul>
+          <li><strong><code>sectionCard.vue</code>:</strong> Es una tarjeta que uso como plantilla para mostrar distintas secciones. Le paso un título y el contenido se coloca dentro, así queda todo más uniforme.</li>
+          <li><strong><code>contactForm.vue</code>:</strong> Es un formulario para recoger datos de contacto del usuario, como el nombre o el correo. Uso <code>q-input</code> y <code>q-btn</code> para que sea fácil de usar.</li>
+          <li><strong><code>UserForm.vue</code>:</strong> Similar al anterior, pero más completo. Sirve para crear o editar usuarios, con campos como dirección, teléfono, etc.</li>
         </ul>
       </SectionCard>
 
-      <SectionCard title="Ventajas de Usar Quasar">
+      <SectionCard title="API utilizada en el proyecto">
+        <p>Para esta práctica estoy usando una API pública que devuelve datos falsos de usuarios, lo cual viene bien para hacer pruebas.</p>
+
+        <h4>API</h4>
+        <p>La API es <a href="https://jsonplaceholder.typicode.com/users" target="_blank">JSONPlaceholder</a>. Tiene datos de usuarios como nombre, correo, dirección...</p>
+
+        <h4>Cómo la uso en el proyecto</h4>
+        <p>Hago una petición HTTP GET con Axios para obtener los datos y luego los muestro en una partes de la aplicación, como en la pagina page2.vue</p>
+
+        <h4>Funciones que he implementado con esa API</h4>
         <ul>
-          <li><strong>Rapidez y Facilidad de Uso:</strong> Puedes empezar rápido gracias a su configuración sencilla y sus componentes listos para usar.</li>
-          <li><strong>Consistencia Visual:</strong> Tu aplicación siempre tendrá un diseño consistente, lo que ahorra tiempo en la personalización.</li>
-          <li><strong>Adaptabilidad:</strong> Ya sea que estés creando una app web, móvil o de escritorio, Quasar tiene todo lo que necesitas.</li>
-          <li><strong>Documentación Amigable:</strong> Cuenta también con una documentación clara y fácil de seguir, ideal para aprender a tu propio ritmo.</li>
+          <li><strong>Ver usuarios:</strong> Los muestro en una card, con datos como nombre, correo, etc.</li>
+          <li><strong>Buscar usuarios:</strong> Puedo filtrar los usuarios por nombre o email gracias a un input de búsqueda.</li>
+          <li><strong>Editar usuarios:</strong> Al hacer clic en un usuario, sus datos se cargan en un formulario para poder modificarlos y guardarlos.</li>
+          <li><strong>Ver detalles de un usuario:</strong> Cada usuario tiene un enlace que lleva a userLink.vue, donde se muestra una tarjeta con información detallada como nombre, email, dirección, compañía, etc. Esto lo hago combinando datos guardados en localStorage con los obtenidos desde la API pública. El archivo usa getUsers y useRoute para cargar los datos correctamente según el ID de la ruta.</li>
+          <li><strong>Limitaciones:</strong> Como los usuarios de la API pública son solo de lectura, no se pueden modificar ni eliminar. En cambio, los usuarios añadidos manualmente no tienen esta tarjeta de detalles, pero sí se pueden editar o eliminar desde la tabla principal.</li>
         </ul>
       </SectionCard>
 
-      <SectionCard title="Desventajas de Usar Quasar">
-        <ul>
-          <li><strong>Curva de Aprendizaje:</strong> Si bien Quasar nos facilita mucho el desarrollo, al principio puede resultar un poco dificl, sobretodo si es tu primer contacto con Vue.js.</li>
-          <li><strong>Tamaño de la App:</strong> Cuantas más funcionalidades añades, mayor será el tamaño de la aplicación. Pero si sabes gestionar bien las dependencias, puedes optimizar el rendimiento.</li>
-        </ul>
-      </SectionCard>
-
-      <SectionCard title="Casos de Uso">
-        <ul>
-          <li><strong>Aplicaciones de Gestión:</strong> Si necesitas crear un panel de administración o un sistema interno, Quasar es perfecto para construirlo rápidamente.</li>
-          <li><strong>Aplicaciones Móviles:</strong> Usando Cordova, puedes transformar tu aplicación web en una app móvil, lo que te permite llegar a más usuarios.</li>
-          <li><strong>Aplicaciones de Escritorio:</strong> Con Quasar, también puedes crear aplicaciones de escritorio usando Electron, lo que hace que tu app sea accesible desde cualquier computadora.</li>
-        </ul>
-      </SectionCard>
-
-      <SectionCard title="Conclusión">
-        <p>
-          En resumen, Quasar es una excelente opción si buscas un framework que haga todo el trabajo pesado por ti, permitiéndote enfocarte en lo que realmente importa: crear aplicaciones increíbles.
-        </p>
-      </SectionCard>
-
-      <!-- Ejemplos de 2 componentes (que no uso en otra pagina durante mi investigacion) -->
-      <SectionCard title="Ejemplo de Componentes de Quasar">
-        <div class="text-center">
-          <q-btn @click="showModal = true" label="Clica y ves a Quasar" color="primary" class="q-mb-md" icon="launch" />
-          <SectionCard title="Título de la Tarjeta">
-            <p>¡Contenido interesante en cualquier tarjeta!</p>
-            <template #actions>
-              <q-btn label="Acción" color="primary" icon="edit" @click="showAlert" class="q-mx-auto" />
-            </template>
-          </SectionCard>
-        </div>
-      </SectionCard>
-
+      
       <q-dialog v-model="showModal" persistent>
         <q-card>
           <q-card-section>
@@ -89,6 +82,7 @@ const goToQuasar = () => {
     </div>
   </q-page>
 </template>
+
 
 
 <style scoped>
